@@ -7,6 +7,7 @@ public class Path {
 	private boolean Left;
 	private boolean Right;
 	private boolean Goal;
+	private boolean Start;
 	/* Konstruktor dan Konstruktor parameter */
 	public Path() { 
 		Front = false;
@@ -14,13 +15,27 @@ public class Path {
 		Left = false;
 		Right = false;
 		Goal = false;
+		Start = false;
 	}
-	public void setPath (boolean a, boolean b, boolean c, boolean d, boolean e) {
-		Front = a;
-		Back = b;
-		Left = c;
-		Right = d;
-		Goal = e;
+	/* Setter */
+	public void setPath (int a) {
+		switch (a) {
+			case 1: Front = true; Back = true; Left = true; Right = true; break;
+			case 2: Front = true; Back = true; Left = true; Right = false; break;
+			case 3: Front = true; Back = true; Left = false; Right = true; break;
+			case 4: Front = true; Back = true; Left = false; Right = false; break;
+			case 5: Front = false; Back = true; Left = true; Right = true; break;
+			case 6: Front = false; Back = true; Left = true; Right = false; break;
+			case 7: Front = false; Back = true; Left = false; Right = true; break;
+			case 8: Front = false; Back = true; Left = false; Right = false; break;
+		}
+	}
+	public void setGoal() {
+		Goal = true;
+	}
+	public void setStart() {
+		Back = false;
+		Start = true;
 	}
 	/* Getter */
 	public boolean getFront() {
@@ -37,5 +52,8 @@ public class Path {
 	}
 	public boolean getGoal() {
 		return Goal;
+	}
+	public boolean getStart() {
+		return Start;
 	}
 }

@@ -9,21 +9,17 @@ public class Map {
 		/* Deklarasi array 2 dimensi */
 		P = new Path[8][];
 		for (int i=0;i<8;i++) {
-			P[i] = new Path[8];
-			for (int j=0;j<8;j++) {
+			P[i] = new Path[7];
+			for (int j=0;j<7;j++) {
 				P[i][j] = new Path();
 			}
 		}
 		/* Inisialisasi level 1 */
-		//row 1
-		P[0][0].setPath(false,false,false,false,false);
-		P[0][1].setPath(false,false,false,false,false);
-		P[0][2].setPath(false,false,false,false,false);
-		P[0][3].setPath(false,false,false,false,false);
-		P[0][4].setPath(false,true,false,false,false);
-		P[0][5].setPath(false,false,false,false,false);
-		P[0][6].setPath(true,true,false,false,true);
-		P[0][7].setPath(false,false,false,false,false);
+		Level = 1;
+		/* Set start node */
+		P[6][3].setStart();
+		/* Set goal node */
+		P[0][3].setGoal();
 	}
 	/* Melakukan validasi, 1 adalah depan, 2 adalah belakang, 3 adalah kiri, 4 adalah kanan */
 	public boolean isPathValid(int arah, int i, int j) {
@@ -38,19 +34,28 @@ public class Map {
 	}
 	public void increaseMapLevel() {
 		Level++;
+		randomMap();
 	}
 	public int getMapLevel() {
 		return Level;
 	}
+	/* Randomizer map */
+	public void randomMap() {
+		/* Aturan random map, apabila ada path keatas, maka path diatasnya harus ada path 
+		 * kebawah, apabila ada path kekiri, maka path dikirinya harus ada path
+		 * kekanan, dan begitu pula sebaliknya 
+		 * */
+		for (int i=0;i<7;i++) {
+			for (int j=0;j<7;j++) {
+				int x = (int)(Math.random() * 7);
+				System.out.print(x);
+			}
+			System.out.println();
+		}		
+	}
+	/* Main */
 	public static void main(String args[]) {
 		Map M = new Map();
-		for (int arah=1;arah<=4;arah++) {
-			if (M.isPathValid(arah, 0, 0)) {
-				System.out.println("true!");	
-			}
-			else {
-				System.out.println("false!");
-			}
-		}
+		M.randomMap();
 	}
 }

@@ -47,7 +47,7 @@ public class Map {
 		 * */
 		for (int i=0;i<7;i++) {
 			for (int j=0;j<7;j++) {
-				int x = (int)(Math.random() * 7);
+				int x = (int)(Math.random() * 8) + 1;
 				System.out.print(x);
 			}
 			System.out.println();

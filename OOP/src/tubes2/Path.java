@@ -2,12 +2,13 @@ package tubes2;
 
 public class Path {
 	/* Atribut kelas */
-	private boolean Front;
-	private boolean Back;
-	private boolean Left;
-	private boolean Right;
-	private boolean Goal;
-	private boolean Start;
+	private boolean Front; //apabila ada jalan kedepan
+	private boolean Back; //apabila ada jalan kebelakang
+	private boolean Left; //apabila ada jalan kekiri
+	private boolean Right; //apabila ada jalan kekanan
+	private boolean Goal; //apabila merupakan goal
+	private boolean Start; //apabila merupakan start
+	private int Facing; //mengubah value facing yang merupakan sebuah permasalah pada FPS
 	/* Konstruktor dan Konstruktor parameter */
 	public Path() { 
 		Front = false;
@@ -30,12 +31,15 @@ public class Path {
 			case 8: Front = false; Back = true; Left = false; Right = false; break;
 		}
 	}
-	public void setGoal() {
-		Goal = true;
+	public void setGoal(boolean a) {
+		Goal = a;
 	}
-	public void setStart() {
+	public void setStart(boolean a) {
 		Back = false;
-		Start = true;
+		Start = a;
+	}
+	public void setFacing(int a) {
+		Facing = a;
 	}
 	/* Getter */
 	public boolean getFront() {
@@ -55,5 +59,9 @@ public class Path {
 	}
 	public boolean getStart() {
 		return Start;
+	}
+	public int getFacing() {
+		return Facing;
+	}
 	}
 }

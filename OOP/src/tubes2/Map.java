@@ -70,7 +70,6 @@ public class Map {
 										P[5][5].setPath(7); P[5][6].setPath(2);
 					P[6][0].setPath(7); P[6][1].setPath(7); P[6][3].setPath(4); P[6][3].setStart(true); P[6][6].setPath(8);
 					break;
-			case 3: break;
 		}
 		
 	}
